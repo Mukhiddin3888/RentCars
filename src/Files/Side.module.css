@@ -1,0 +1,11 @@
+.side {
+    grid-area: s;
+    color: darkblue;
+    background-color: greenyellow;
+    padding: 10px;
+    text-decoration: none;
+}
+.side a{
+    text-decoration: none;
+
+}

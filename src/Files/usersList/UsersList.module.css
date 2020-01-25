@@ -1,0 +1,24 @@
+.list{
+    grid-area: a;
+    background-color: lightskyblue;
+    padding: 5px;
+}
+.list a{
+    text-decoration: none;
+}
+.navL {
+    grid-area: b;
+}
+.main{
+    grid-template-areas:
+            'a b';
+    display: grid;
+    background-color: lightskyblue;
+    padding: 10px;
+
+}
+.avatarki img{
+    width: 50px;
+    border-radius: 40px;
+
+}
