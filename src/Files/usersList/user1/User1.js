@@ -1,27 +1,20 @@
-/**
- * Created by muhid on 1/21/2020.
- */
 import React from 'react';
 import s from './User1.module.css';
+let usInfo = {
+    name: 'Mukhiddin',
+    age: '22',
+    status: 'status active',
+    data: 'nothing is possible'
+}
 
 const User1 = (props) => {
-    let silkaForUser1 = React.createRef();
-    let AddInfo =()=>{
-        let curValue= silkaForUser1.current.value;
-        alert(curValue);
-    }
     return (
         <div className={s.info}>
             <div>
-                <p>Price</p>
-                <p>documentation</p>
-                <p>User Information</p>
-            </div>
-            <div>
-                <textarea ref={silkaForUser1}></textarea>
-            </div>
-            <div>
-                <button onClick={AddInfo}>Add User Information!</button>
+                <p>Name: {usInfo.name}</p>
+                <p>age:{usInfo.age}</p>
+                <p>status:{usInfo.status}</p>
+                <p>data{usInfo.data}</p>
             </div>
 
         </div>

@@ -1,6 +1,7 @@
 .chevrolet{
     grid-template-areas:
   "a  b "
+  "c d"
   ;
     display: grid;
     grid-template-rows: 2fr 2fr 2fr;
@@ -11,10 +12,18 @@
 .car1 img {
     width:200px;
     grid-area: a;
-    border-radius: 100px;
+    border-radius: 300px;
 
 }
 
 .add{
     grid-area: b;
+}
+.header{
+    color: lawngreen;
+    text-align: center;
+}
+.textar{
+    float: right;
+    padding: 10px;
 }

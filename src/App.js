@@ -32,6 +32,7 @@ import UsersList from "./Files/usersList/UsersList";
 import ProductsList from "./Files/ProductsList/ProductsList";
 import {BrowserRouter, Route} from "react-router-dom";
 import RavonR from "./Files/ProductsList/RavonR4/RavonR";
+import Orlando from "./Files/ProductsList/Orlando/Orlando";
 
 
 function App(props) {
@@ -45,15 +46,22 @@ function App(props) {
                 <div>
                     <Route exact path='/UsersList'
                            render={() => <UsersList
-                               users={props.state.users}
-                               addNewUser={props.addNewUser}
-                               usersInfo={props.state.usersInfo} /> }/>
+                               store={props.store}
+                               dispatch={props.dispatch}
+                              // updateNewUser={props.updateNewUser.bind(props)}
+
+                               /> }/>
 
                     <Route exact path='/ProductList'
                            render={() => <ProductsList
-                               cars={props.state.cars}/> }/>
+                               dispatch={props.dispatch}
+                               store={props.store._store.listProductsPage}
+
+                               /> }/>
 
                     <Route path='/ProductList/cobalt' component={RavonR }/>
+                    <Route path='/ProductList/orlando4' component={Orlando }/>
+
                    {/* <Route exact path='/MUsersList'
                            render={() => <MUsersList users={props.state.users}
 
