@@ -1,47 +1,46 @@
-
 import React from 'react';
 import s from './ProductList.module.css';
 import {NavLink} from "react-router-dom";
-import {addNewCarActionCreator, updateNewCarActionCreator} from "../../redux/List-Products-Reducer";
 
-
-const ListItem = (props) => {
+/*const ListItem = (props) => {
     let path = '/ProductList/' + props.name;
     let path2 = 'images/' + props.image + '.jpg';
 
     return (
         <NavLink to={path}> <img src={path2} alt=""/> {props.name} </NavLink>
-        /*  <NavLink to={path}> <img src="images/Ravon_R4.jpg" alt="cobalt" /> </NavLink>*/
+        /!*  <NavLink to={path}> <img src="images/Ravon_R4.jpg" alt="cobalt" /> </NavLink>*!/
     )
-}
+};*/
 
 const ProductsList = (props) => {
-    let listCars =
-        props.store.cars.map(r => <ListItem name={r.name} image={r.image}/>)
-    let clicked=()=> {
-        props.dispatch(addNewCarActionCreator());
-    }
-    let changed=(e)=> {
-       let cValue= e.target.value;
+    //let listCars =
+      //  props.state.listProductsPage.cars.map(r => <ListItem name={r.name} image={r.image}/>)
 
-        props.dispatch(updateNewCarActionCreator(cValue));
+    let clicked = () => {
+        props.clicked();
+    };
+    let changed = (e) => {
+        let cValue = e.target.value;
+        props.changed(cValue);
 
-    }
+        //props.dispatch(updateNewCarActionCreator(cValue));
 
+    };
+debugger;
     return (
         <div className={s.chevrolet}>
             <h2 className={s.header}>Press images to see information about cars</h2>
             <div className={s.car1}>
-                {listCars}
+                props.listCars;
             </div>
             <div className={s.textar}>
                 <textarea
                     onChange={changed}
-                    value={props.store.newCars}
+                    value={props.state.listProductsPage.newCars}
                     placeholder="New Avto Name">
 
                 </textarea>
-                <button onClick={clicked}  >
+                <button onClick={clicked}>
                     Click Me
                 </button>
             </div>

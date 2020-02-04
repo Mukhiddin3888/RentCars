@@ -33,7 +33,9 @@ const UsersList = (props) => {
     }
 
     let ListUsers =
-        props.store._store.usersListPage.users.map(u => <Names name={u.name} id={u.id}/>);
+        props.state.ListUsersReducer.usersListPage.users.map(u => <Names name={u.name} id={u.id}/>);
+       // props.store._store.usersListPage.users.map(u => <Names name={u.name} id={u.id}/>);
+
     return (
         <BrowserRouter>
             <div className={s.main}>
@@ -43,7 +45,7 @@ const UsersList = (props) => {
                 <div>
                     <textarea
                         onChange={updateNewText}
-                        value={props.store.getStore().usersListPage.newUsers}
+                        value={props.state.ListUsersReducer.usersListPage.newUsers}
                         ref={silkaForButton}>
 
                     </textarea>

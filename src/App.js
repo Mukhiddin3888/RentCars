@@ -29,10 +29,11 @@ import './App.css';
 import Header from "./Files/Header";
 import Side from "./Files/Side";
 import UsersList from "./Files/usersList/UsersList";
-import ProductsList from "./Files/ProductsList/ProductsList";
 import {BrowserRouter, Route} from "react-router-dom";
 import RavonR from "./Files/ProductsList/RavonR4/RavonR";
 import Orlando from "./Files/ProductsList/Orlando/Orlando";
+import ProductsListContainer from "./Files/ProductsList/ProductsListContainer";
+import ProductsList from "./Files/ProductsList/ProductsList";
 
 
 function App(props) {
@@ -46,6 +47,7 @@ function App(props) {
                 <div>
                     <Route exact path='/UsersList'
                            render={() => <UsersList
+                               state={props.state}
                                store={props.store}
                                dispatch={props.dispatch}
                               // updateNewUser={props.updateNewUser.bind(props)}
@@ -53,9 +55,10 @@ function App(props) {
                                /> }/>
 
                     <Route exact path='/ProductList'
-                           render={() => <ProductsList
+                           render={() => <ProductsListContainer
+                               state={props.state.ListProductsReducer}
                                dispatch={props.dispatch}
-                               store={props.store._store.listProductsPage}
+                              // store={props.store._store.listProductsPage}
 
                                /> }/>
 

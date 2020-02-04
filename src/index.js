@@ -1,6 +1,6 @@
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import store from './redux/store';
+import store from './redux/redux-store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -12,6 +12,7 @@ export let renderTree=(state)=>{
     ReactDOM.render(
         <BrowserRouter>
             <App
+                state={state}
                 store={store}
                 dispatch={store.dispatch.bind(store)}
                 //updateNewUser={store.updateNewUser.bind(store)}
@@ -21,10 +22,10 @@ export let renderTree=(state)=>{
 }
 
 
-renderTree(store.getStore());
+renderTree(store.getState());
 
 store.subscribe(()=>{
-    let state = store.getStore();
+    let state = store.getState();
     renderTree(state);
 })
 
