@@ -47,18 +47,19 @@ function App(props) {
                 <div>
                     <Route exact path='/UsersList'
                            render={() => <UsersList
-                               state={props.state}
-                               store={props.store}
-                               dispatch={props.dispatch}
+                              // state={props.state}
+                               //store={props.store}
+                              // dispatch={props.dispatch}
                               // updateNewUser={props.updateNewUser.bind(props)}
 
                                /> }/>
 
                     <Route exact path='/ProductList'
                            render={() => <ProductsListContainer
-                               state={props.state.ListProductsReducer}
-                               dispatch={props.dispatch}
+                              // state={props.state.ListProductsReducer}
+                               //dispatch={props.dispatch}
                               // store={props.store._store.listProductsPage}
+                               //store={props.store}
 
                                /> }/>
 

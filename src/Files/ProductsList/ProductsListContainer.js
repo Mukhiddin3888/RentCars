@@ -2,6 +2,7 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import {addNewCarActionCreator, updateNewCarActionCreator} from "../../redux/List-Products-Reducer";
 import ProductsList from "./ProductsList";
+import {connect} from "react-redux";
 debugger;
 const ListItem = (props) => {
     let path = '/ProductList/' + props.name;
@@ -11,11 +12,11 @@ const ListItem = (props) => {
         <NavLink to={path}> <img src={path2} alt=""/> {props.name} </NavLink>
         /*  <NavLink to={path}> <img src="images/Ravon_R4.jpg" alt="cobalt" /> </NavLink>*/
     )
-}
-
+};
+/*
 const ProductsListContainer = (props) => {
     let listCars =
-        props.state.listProductsPage.cars.map(r => <ListItem name={r.name} image={r.image}/>)
+        props.store.listProductsPage.cars.map(r => <ListItem name={r.name} image={r.image}/>);
     let clicked=()=> {
         props.dispatch(addNewCarActionCreator());
     };
@@ -28,14 +29,14 @@ const ProductsListContainer = (props) => {
     return (
         <div >
            <ProductsList
-               state={props.state.ListProductsReducer}
+               store={props.store}
                clicked={clicked}
                changed={changed}
                listCars={listCars}
-
            />
 
-            {/*   <div className={s.car2}>
+
+            {/!*   <div className={s.car2}>
 
              <ListItem name="orlando4" image="orlando4"/>
 
@@ -55,10 +56,54 @@ const ProductsListContainer = (props) => {
              <div className={s.car5}>
              <ListItem name="traker" image="chevrolet-trax"/>
              </div>
-             */}
+             *!/}
 
         </div>
 
     );
+};*/
+let mapDispatchToProps =(dispatch)=> {
+    return{
+        clicked:()=>{
+            dispatch(addNewCarActionCreator());
+    },
+        changed: (e)=>{
+            dispatch(updateNewCarActionCreator(e));
+        }
 }
+
+};
+let mapStateToProps=(state)=>{
+return{
+    listCars: state.listCars,
+    state:state.state
+
+}
+};
+let f1=(state)=>{
+    return{
+        listCars:()=>{
+            state.listProductsPage.cars.map(r => <ListItem name={r.name} image={r.image}/>);
+
+    }}
+};
+const ProductsListContainer = connect(mapDispatchToProps,mapStateToProps)(ProductsList);
+const anotherList =connect(f1)(ListItem);
 export default ProductsListContainer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

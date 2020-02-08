@@ -31,11 +31,12 @@ debugger;
         <div className={s.chevrolet}>
             <h2 className={s.header}>Press images to see information about cars</h2>
             <div className={s.car1}>
-                props.listCars;
+                {props.listCars};
             </div>
             <div className={s.textar}>
                 <textarea
                     onChange={changed}
+                    //value={props.state.listProductsPage.newCars}
                     value={props.state.listProductsPage.newCars}
                     placeholder="New Avto Name">
 
